@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+<<<<<<< HEAD
 const Food = require("../models/Food");
 
 // ✅ MENU WITH CUSTOMIZATIONS FROM TABLE
@@ -17,6 +18,15 @@ router.get("/menu-with-customizations", async (req, res) => {
 },
 
 
+=======
+const FoodItem = require("../models/FoodItem");
+
+// ✅ foods + customizations (JOIN)
+router.get("/menu-with-customizations", async (req, res) => {
+  try {
+    const data = await FoodItem.aggregate([
+      { $match: { is_available: true } },
+>>>>>>> 95119c6d651d04588453d5d3ce559c2d3af00ca9
       {
         $lookup: {
           from: "customization_items",
@@ -25,6 +35,7 @@ router.get("/menu-with-customizations", async (req, res) => {
           as: "customization_docs",
         },
       },
+<<<<<<< HEAD
 
       {
         $addFields: {
@@ -79,4 +90,37 @@ router.get("/", async (req, res) => {
 });
 
 
+=======
+      {
+        $addFields: {
+    customizations: {
+      $filter: {
+        input: [
+          { $arrayElemAt: ["$customization_docs.c_item1", 0] },
+          { $arrayElemAt: ["$customization_docs.c_item2", 0] },
+          { $arrayElemAt: ["$customization_docs.c_item3", 0] },
+          { $arrayElemAt: ["$customization_docs.c_item4", 0] },
+          { $arrayElemAt: ["$customization_docs.c_item5", 0] },
+          { $arrayElemAt: ["$customization_docs.c_item6", 0] },
+          { $arrayElemAt: ["$customization_docs.c_item7", 0] },
+          { $arrayElemAt: ["$customization_docs.c_item8", 0] }
+        ],
+        as: "x",
+        cond: { $ne: ["$$x", null] }
+      }
+    }
+  },
+      },
+      { $project: { customization_docs: 0 } },
+      { $sort: { category: 1, food_item: 1 } },
+    ]);
+
+    res.json(data);
+  } catch (err) {
+    console.log("MENU WITH CUSTOMIZATIONS ERROR:", err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+>>>>>>> 95119c6d651d04588453d5d3ce559c2d3af00ca9
 module.exports = router;

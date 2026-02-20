@@ -14,7 +14,11 @@ const customizationItemSchema = new mongoose.Schema(
     c_item8: String,
     spice_level: String,
     sweetness: String,
+<<<<<<< HEAD
     salt_level: String,
+=======
+    salt_level: String
+>>>>>>> 95119c6d651d04588453d5d3ce559c2d3af00ca9
   },
   { collection: "customization_items" }
 );

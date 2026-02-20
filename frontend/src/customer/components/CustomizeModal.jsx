@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useMemo, useState } from "react";
+=======
+import React, { useState } from "react";
+>>>>>>> 95119c6d651d04588453d5d3ce559c2d3af00ca9
 import { useCart } from "../context/CartContext";
 import "./modal.css";
 
@@ -7,6 +11,7 @@ export default function CustomizeModal({ food, onClose }) {
 
   const [spice, setSpice] = useState("Normal");
   const [oil, setOil] = useState("Low");
+<<<<<<< HEAD
   const [salt, setSalt] = useState("Normal");
   const [note, setNote] = useState("");
 
@@ -33,12 +38,29 @@ export default function CustomizeModal({ food, onClose }) {
   selectedOptions: excluded
 });
 
+=======
+  const [salt, setSalt] = useState("Low");
+  const [note, setNote] = useState("");
+
+  // ✅ NEW
+  const [excluded, setExcluded] = useState([]);
+
+  const toggleExcluded = (ing) => {
+    setExcluded((prev) =>
+      prev.includes(ing) ? prev.filter((x) => x !== ing) : [...prev, ing]
+    );
+  };
+
+  const handleAdd = () => {
+    addToCart(food, { spice, oil, salt, note, excluded });
+>>>>>>> 95119c6d651d04588453d5d3ce559c2d3af00ca9
     onClose();
   };
 
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
+<<<<<<< HEAD
         <button className="modal-close" onClick={onClose}>
           ×
         </button>
@@ -128,6 +150,50 @@ export default function CustomizeModal({ food, onClose }) {
             
           </button>
         </div>
+=======
+        <h2>{food.food_item}</h2>
+
+        <h3>Spice Level</h3>
+        {["Mild", "Normal", "Medium", "Hot"].map((s) => (
+          <label key={s}>
+            <input type="radio" checked={spice === s} onChange={() => setSpice(s)} />
+            {s}
+          </label>
+        ))}
+
+        
+
+        
+
+        {food.customizations?.length > 0 && ( <> <h3>Customization Options</h3> {food.customizations.map((opt) => ( <label key={opt}> <input type="checkbox" /> {opt} </label> ))} </> )}
+
+
+
+        <h3>Oil Level</h3>
+        {["Low", "Medium", "High"].map((s) => (
+          <label key={s}>
+            <input type="radio" checked={oil === s} onChange={() => setOil(s)} />
+            {s}
+          </label>
+        ))}
+
+        <h3>Salt Level</h3>
+        {["Low", "Normal", "High"].map((s) => (
+          <label key={s}>
+            <input type="radio" checked={salt === s} onChange={() => setSalt(s)} />
+            {s}
+          </label>
+        ))}
+
+        <textarea
+          placeholder="Special instructions"
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+        />
+
+        <button onClick={handleAdd} className="add-btn">Add to Cart</button>
+        <button onClick={onClose} className="cancel-btn">Cancel</button>
+>>>>>>> 95119c6d651d04588453d5d3ce559c2d3af00ca9
       </div>
     </div>
   );

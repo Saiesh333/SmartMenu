@@ -52,6 +52,7 @@ export default function Cart() {
             <p>₹{item.price}</p>
 
             {/* customizations */}
+<<<<<<< HEAD
            {item.customizations && (
   <div className="custom-info">
     <small>
@@ -69,6 +70,13 @@ export default function Cart() {
 
 
 
+=======
+            <div className="custom-info">
+              {item.customizations?.spice && <small>Spice: {item.customizations.spice}</small>}
+              {item.customizations?.oil && <small> | Oil: {item.customizations.oil}</small>}
+              {item.customizations?.salt && <small> | Salt: {item.customizations.salt}</small>}
+            </div>
+>>>>>>> 95119c6d651d04588453d5d3ce559c2d3af00ca9
           </div>
 
           <div className="qty-controls">
