@@ -1,0 +1,169 @@
+/* PAGE */
+.menu-page{
+  background:#f5f6fa;
+  min-height:100vh;
+  padding-top:70px; /* prevent navbar overlap */
+  font-family:system-ui;
+}
+
+/* SEARCH BAR */
+.search-bar{
+  position:sticky;
+  top:70px;
+  z-index:60;
+  background:white;
+  padding:12px 14px;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+.search-bar input{
+  width:100%;
+  padding:12px 18px;
+  border-radius:25px;
+  border:1px solid #ddd;
+  font-size:15px;
+  outline:none;
+}
+
+/* CATEGORY CHIPS */
+.category-chips{
+  position:sticky;
+  top:130px;
+  z-index:55;
+  background:white;
+  display:flex;
+  gap:10px;
+  padding:12px;
+  overflow-x:auto;
+  box-shadow:0 4px 10px rgba(0,0,0,.06);
+}
+
+.category-chips::-webkit-scrollbar{
+  display:none;
+}
+
+.chip{
+  border:none;
+  padding:10px 18px;
+  border-radius:25px;
+  background:#eee;
+  white-space:nowrap;
+  font-size:14px;
+  transition:.25s;
+}
+
+.chip:hover{
+  background:#ffe9db;
+}
+
+.chip.active{
+  background:#ff6b00;
+  color:white;
+  font-weight:600;
+  transform:scale(1.05);
+}
+
+/* MENU BODY */
+.menu-container{
+  padding:20px 14px 100px;
+}
+
+.category-title{
+  font-size:24px;
+  margin-bottom:14px;
+  font-weight:700;
+  color:#222;
+}
+
+/* FOOD GRID (DESKTOP) */
+.food-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:18px;
+}
+
+/* EMPTY */
+.no-food{
+  text-align:center;
+  margin-top:40px;
+  color:#888;
+}
+
+/* FLOATING CART */
+.floating-cart{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#ff6b00;
+  color:white;
+  border:none;
+  padding:14px 22px;
+  border-radius:30px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 8px 25px rgba(0,0,0,0.25);
+  z-index:90;
+  transition:.25s;
+}
+
+.floating-cart:hover{
+  transform:scale(1.08);
+  background:#e55d00;
+}
+
+/* ================= MOBILE DESIGN ================= */
+
+@media(max-width:768px){
+
+  .menu-page{
+    padding-top:65px;
+  }
+
+  .search-bar{
+    top:65px;
+    padding:10px;
+  }
+
+  .category-chips{
+    top:115px;
+    padding:10px;
+  }
+
+  .menu-container{
+    padding:18px 10px 120px;
+  }
+
+  /* IMPORTANT: SINGLE COLUMN MOBILE */
+  .food-grid{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  .category-title{
+    font-size:20px;
+  }
+
+  /* cart button center mobile */
+  .floating-cart{
+    right:50%;
+    transform:translateX(50%);
+    padding:14px 28px;
+  }
+
+}
+
+/* SMALL PHONE */
+@media(max-width:420px){
+
+  .search-bar input{
+    font-size:14px;
+    padding:10px 14px;
+  }
+
+  .chip{
+    padding:8px 14px;
+    font-size:13px;
+  }
+
+}

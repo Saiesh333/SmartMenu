@@ -1,0 +1,165 @@
+/* Dark background overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+/* Modal box */
+.modal {
+  width: min(920px, 95vw);
+  max-height: 85vh;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Modal header area */
+.modal h2 {
+  margin: 0;
+  padding: 18px 22px 6px;
+  font-size: 28px;
+}
+
+.modal .subtitle {
+  margin: 0;
+  padding: 0 22px 14px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Scrollable content inside modal */
+.modal-content {
+  padding: 18px 22px;
+  overflow: auto;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 12px;
+  background: #f3f3f3;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 40px;
+}
+
+.modal-close:hover {
+  background: #eaeaea;
+}
+
+/* Section headings */
+.modal h3 {
+  margin: 18px 0 10px;
+  font-size: 16px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+/* Pills layout for radio groups */
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Hide native radio */
+.pill-row input[type="radio"] {
+  display: none;
+}
+
+/* Pill labels */
+.pill {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #efefef;
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+}
+
+.pill.active {
+  background: #ff7a00;
+  color: #fff;
+}
+
+/* Options grid */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 700px) {
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.option-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.option-card input {
+  width: 18px;
+  height: 18px;
+}
+
+/* Notes */
+.modal textarea {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 10px 12px;
+  outline: none;
+}
+
+/* Footer buttons */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 22px;
+}
+
+.add-btn {
+  background: #ff7a00;
+  border: none;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.cancel-btn {
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+}
